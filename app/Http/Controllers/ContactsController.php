@@ -28,6 +28,7 @@ class ContactsController extends Controller
     public function index()
     {
         $contacts = Contact::all();
+        $contacts = Contact::orderby('id', 'asc')->simplePaginate(10);
         return view('contacts.index', compact(['contacts']));
     }
 
